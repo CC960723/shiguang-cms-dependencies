@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>net.cww</groupId>
+    <artifactId>shiguang-cms-dependencies</artifactId>
+    <version>1.0.0-RELEASE</version>
+    <packaging>pom</packaging>
+    <name>shiguang-cms-dependencies</name>
+    <description>时光CMS基础依赖管理POM</description>
+    <url>https://github.com/CC960723/shiguang-cms-dependencies</url>
+    <organization>
+        <name>CaiWeiWei Org</name>
+        <url>https://caiweiwei.cc/projects/shiguang-cms-dependencies</url>
+    </organization>
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>https://opensource.org/license/mit/</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+    <developers>
+        <developer>
+            <id>caiweiwei</id>
+            <name>Cai Zhengwei</name>
+            <email>caiweiwei@caiweiwei.cc</email>
+        </developer>
+    </developers>
+    <scm>
+        <connection>scm:git:git://github.com/CC960723/shiguang-cms-dependencies</connection>
+        <developerConnection>scm:git:git://github.com/CC960723/shiguang-cms-dependencies</developerConnection>
+        <url>https://github.com/CC960723/shiguang-cms-dependencies</url>
+    </scm>
+    <issueManagement>
+        <system>GitHub</system>
+        <url>https://github.com/CC960723/shiguang-cms-dependencies/issues</url>
+    </issueManagement>
+
+    <!--定义推送库-->
+    <distributionManagement>
+        <repository>
+            <id>personal-release</id>
+            <url>http://192.168.66.66:8081/repository/maven-releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>personal-snapshot</id>
+            <url>http://192.168.66.66:8081/repository/maven-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <properties>
+        <spring.framework.version>5.3.30</spring.framework.version>
+        <spring.boot.version>2.7.18</spring.boot.version>
+        <spring.cloud.version>2021.0.8</spring.cloud.version>
+        <spring.cloud.alibaba.version>2021.0.5.0</spring.cloud.alibaba.version>
+        <mybatis.plus.version>3.5.4.1</mybatis.plus.version>
+        <mybatis.spring.boot.version>2.3.2</mybatis.spring.boot.version>
+        <elasticsearch.java.version>7.17.14</elasticsearch.java.version>
+        <mybatis.version>3.5.14</mybatis.version>
+        <mybatis.spring.version>2.1.2</mybatis.spring.version>
+        <knife4j.version>4.3.0</knife4j.version>
+        <io.swagger.version>1.5.20</io.swagger.version>
+        <io.springfox.version>2.10.5</io.springfox.version>
+        <caffeine.version>2.9.3</caffeine.version>
+        <lettuce.version>6.2.6.RELEASE</lettuce.version>
+        <snakeyaml.version>1.33</snakeyaml.version>
+        <thymeleaf.version>3.1.2.RELEASE</thymeleaf.version>
+        <minio.version>8.5.6</minio.version>
+        <!--ftp客户端-->
+        <apache.commons.net.version>3.10.0</apache.commons.net.version>
+        <!--java版的ssh2客户端-->
+        <jsch.version>0.1.55</jsch.version>
+        <fastdfs.client.java.version>1.29</fastdfs.client.java.version>
+        <!--分布式定时任务之ElasticJob-Lite-->
+        <elasticjob-lite-core.version>3.0.3</elasticjob-lite-core.version>
+        <!--分布式定时任务之XXL-Job-->
+        <xxl-job.version>2.4.0</xxl-job.version>
+        <!--mongodb驱动-->
+        <mongodb.driver.sync.version>4.10.2</mongodb.driver.sync.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-framework-bom</artifactId>
+                <version>${spring.framework.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring.boot.version}</version>
+                <scope>import</scope>
+                <type>pom</type>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring.cloud.version}</version>
+                <scope>import</scope>
+                <type>pom</type>
+            </dependency>
+
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-dependencies</artifactId>
+                <version>${knife4j.version}</version>
+                <scope>import</scope>
+                <type>pom</type>
+            </dependency>
+
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${mybatis.spring.boot.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <version>${io.springfox.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.swagger</groupId>
+                <artifactId>swagger-annotations</artifactId>
+                <version>${io.swagger.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.swagger</groupId>
+                <artifactId>swagger-models</artifactId>
+                <version>${io.swagger.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>co.elastic.clients</groupId>
+                <artifactId>elasticsearch-java</artifactId>
+                <version>${elasticsearch.java.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis.plus.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis</artifactId>
+                <version>${mybatis.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis-spring</artifactId>
+                <version>${mybatis.spring.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.lettuce</groupId>
+                <artifactId>lettuce-core</artifactId>
+                <version>${lettuce.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.github.ben-manes.caffeine</groupId>
+                <artifactId>caffeine</artifactId>
+                <version>${caffeine.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.google.code.findbugs</groupId>
+                <artifactId>annotations</artifactId>
+                <version>3.0.1</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.google.code.findbugs</groupId>
+                <artifactId>jsr305</artifactId>
+                <version>3.0.2</version>
+            </dependency>
+
+            <!--升级yaml依赖版本，ShardingSphere需要的版本高于SpringBoot依赖的版本-->
+            <dependency>
+                <groupId>org.yaml</groupId>
+                <artifactId>snakeyaml</artifactId>
+                <version>${snakeyaml.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.thymeleaf</groupId>
+                <artifactId>thymeleaf</artifactId>
+                <version>${thymeleaf.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.thymeleaf</groupId>
+                <artifactId>thymeleaf-spring5</artifactId>
+                <version>${thymeleaf.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.thymeleaf.extras</groupId>
+                <artifactId>thymeleaf-extras-springsecurity5</artifactId>
+                <version>${thymeleaf.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.thymeleaf.testing</groupId>
+                <artifactId>thymeleaf-testing</artifactId>
+                <version>${thymeleaf.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.thymeleaf.testing</groupId>
+                <artifactId>thymeleaf-testing-spring5</artifactId>
+                <version>${thymeleaf.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.minio</groupId>
+                <artifactId>minio</artifactId>
+                <version>${minio.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>commons-net</groupId>
+                <artifactId>commons-net</artifactId>
+                <version>${apache.commons.net.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.jcraft</groupId>
+                <artifactId>jsch</artifactId>
+                <version>${jsch.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.csource</groupId>
+                <artifactId>fastdfs-client-java</artifactId>
+                <version>${fastdfs.client.java.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.shardingsphere.elasticjob</groupId>
+                <artifactId>elasticjob-lite-core</artifactId>
+                <version>${elasticjob-lite-core.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.xuxueli</groupId>
+                <artifactId>xxl-job-core</artifactId>
+                <version>${xxl-job.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.mongodb</groupId>
+                <artifactId>mongodb-driver-sync</artifactId>
+                <version>${mongodb.driver.sync.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+</project>
